@@ -159,4 +159,19 @@ public class ShootingController : MonoBehaviour
             }
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //check, if gameobject has tag Homebase
+        if (!isPlayerControlled)
+        {
+            if (other.tag == "Homebase")
+            {
+                //delete projectile gameobject from the scene
+                Destroy(gameObject);
+            }
+
+
+        }
+
+    }
 }

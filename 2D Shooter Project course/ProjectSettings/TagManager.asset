@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Flag
+  - Homebase
+  - EnemyProjectile
+  - ChaserEnemy
+  - DiagonalShooter
   layers:
   - Default
   - TransparentFX
@@ -43,4 +48,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Safe Zone
+    uniqueID: 3959577085
+    locked: 0
+  - name: Player
+    uniqueID: 2425445105
     locked: 0

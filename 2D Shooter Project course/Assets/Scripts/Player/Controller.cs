@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This class controls player movement
@@ -263,4 +264,26 @@ public class Controller : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //check, if gameobject has tag Flag
+        if (other.tag == "Flag")
+        {
+            //delete flag gameobject from the scene
+            Destroy(other.gameObject);
+        }
+
+        //check, if player is at the homebase and the flg is missing
+        if (other.tag == "Homebase")
+        {
+            if (GameObject.Find("Flag") == null)
+            {
+                Debug.Log("You Win!");
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
+
+    }
+
 }

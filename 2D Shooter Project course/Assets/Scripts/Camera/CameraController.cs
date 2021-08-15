@@ -37,6 +37,20 @@ public class CameraController : MonoBehaviour
     [Tooltip("The z coordinate to use for the camera position")]
     public float cameraZCoordinate = -10.0f;
 
+    [Header("CameraClamp")]
+    [Tooltip("The x and y limits of the camera")]
+    public float xMax;
+    public float xMin;
+    public float yMax;
+    public float yMin;
+
+
+
+
+
+
+
+
     //The input manager that reads in input
     private InputManager inputManager;
 
@@ -71,6 +85,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         SetCameraPosition();
+
     }
 
     /// <summary>
@@ -90,6 +105,12 @@ public class CameraController : MonoBehaviour
             Vector3 desiredCameraPosition = ComputeCameraPosition(targetPosition, mousePosition);
 
             transform.position = desiredCameraPosition;
+
+            //clamps the camera to be within the game space
+            transform.position = new Vector3(
+                Mathf.Clamp(target.position.x, xMin, xMax),
+                Mathf.Clamp(target.position.y, yMin, yMax),
+                transform.position.z);
         }      
     }
 

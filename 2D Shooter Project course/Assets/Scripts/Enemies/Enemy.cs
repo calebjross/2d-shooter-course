@@ -79,6 +79,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (GameObject.Find("Flag") == null)
+        {
+            //it does not exist
+            moveSpeed = 5;
+        }
+    }
+
     /// <summary>
     /// Description:
     /// Handles moving and shooting in accordance with the enemy's set behaviour
